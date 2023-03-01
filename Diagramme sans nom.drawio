@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-01T14:13:02.108Z" agent="5.0 (X11; Ubuntu)" etag="-T5ZsmPYSxiz4Oqw5-Mw" version="20.8.23" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-03-01T14:15:24.132Z" agent="5.0 (X11; Ubuntu)" etag="BAsyCAz6_SKCmksLXYQ3" version="20.8.23" type="github" pages="2">
   <diagram name="Page-1" id="c4acf3e9-155e-7222-9cf6-157b1a14988f">
     <mxGraphModel dx="806" dy="483" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -373,6 +373,30 @@
         </mxCell>
         <mxCell id="_CiIot_4VqOJ6wbPFEgu-32" value="&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;b&gt;&lt;br&gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;p style=&quot;margin:0px;margin-top:4px;text-align:center;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Soin&lt;/b&gt;&lt;br&gt;&lt;b&gt;&lt;/b&gt;&lt;/font&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin:0px;margin-left:4px;&quot;&gt;&lt;font style=&quot;font-size: 18px;&quot;&gt;+Soin()&lt;br&gt;&lt;/font&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;fillColor=#FFF2CC;" vertex="1" parent="1">
           <mxGeometry x="-10" y="-830" width="310" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="_CiIot_4VqOJ6wbPFEgu-34" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;fontSize=18;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="_CiIot_4VqOJ6wbPFEgu-31" target="_CiIot_4VqOJ6wbPFEgu-21">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-180" y="-850" as="sourcePoint" />
+            <mxPoint x="-20" y="-850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_CiIot_4VqOJ6wbPFEgu-35" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;fontSize=18;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.608;entryY=1.1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="_CiIot_4VqOJ6wbPFEgu-31" target="_CiIot_4VqOJ6wbPFEgu-13">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-180" y="-850" as="sourcePoint" />
+            <mxPoint x="-20" y="-850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_CiIot_4VqOJ6wbPFEgu-36" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;fontSize=18;" edge="1" parent="1" source="_CiIot_4VqOJ6wbPFEgu-32" target="_CiIot_4VqOJ6wbPFEgu-21">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="-180" y="-850" as="sourcePoint" />
+            <mxPoint x="-20" y="-850" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_CiIot_4VqOJ6wbPFEgu-37" value="Use" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;fontSize=18;" edge="1" parent="1" target="_CiIot_4VqOJ6wbPFEgu-17">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="60" y="-830" as="sourcePoint" />
+            <mxPoint x="-20" y="-850" as="targetPoint" />
+          </mxGeometry>
         </mxCell>
       </root>
     </mxGraphModel>
