@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-01T13:55:26.532Z" agent="5.0 (X11; Ubuntu)" etag="uCH4QlfUcaISq6zjKwPK" version="20.8.23" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-03-01T13:56:05.107Z" agent="5.0 (X11; Ubuntu)" etag="xz9hJ_B2vxUJT-IIaxcO" version="20.8.23" type="github" pages="2">
   <diagram name="Page-1" id="c4acf3e9-155e-7222-9cf6-157b1a14988f">
     <mxGraphModel dx="806" dy="483" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -283,7 +283,7 @@
         <mxCell id="_CiIot_4VqOJ6wbPFEgu-3" value="-nom: string&#xa;-point_de_vie:int&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-2">
           <mxGeometry y="48" width="320" height="70" as="geometry" />
         </mxCell>
-        <mxCell id="_CiIot_4VqOJ6wbPFEgu-5" value="+AfficherNom(nom:string)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-2">
+        <mxCell id="_CiIot_4VqOJ6wbPFEgu-5" value="+AfficherNom(nom:string)&#xa;+AfficherPV(pv:int)&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-2">
           <mxGeometry y="118" width="320" height="76" as="geometry" />
         </mxCell>
         <mxCell id="_CiIot_4VqOJ6wbPFEgu-6" value="Class" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=18;fillColor=#FFF2CC;" vertex="1" parent="1">
