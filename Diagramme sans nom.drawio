@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2023-03-01T15:06:33.668Z" agent="5.0 (X11; Ubuntu)" etag="UTFM386JZaCsVpAfG0nL" version="20.8.23" type="github" pages="2">
+<mxfile host="app.diagrams.net" modified="2023-03-01T15:16:45.393Z" agent="5.0 (X11; Ubuntu)" etag="lyhVjPuHG-sxgC9yut1T" version="20.8.23" type="github" pages="2">
   <diagram name="Page-1" id="c4acf3e9-155e-7222-9cf6-157b1a14988f">
     <mxGraphModel dx="806" dy="483" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="none" math="0" shadow="0">
       <root>
@@ -271,22 +271,22 @@
         <mxCell id="8-_CZMkWfx0FN1sN9V46-1" value="" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
           <mxGeometry x="370" y="220" width="80" height="80" as="geometry" />
         </mxCell>
-        <mxCell id="_CiIot_4VqOJ6wbPFEgu-6" value="Status&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=18;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
+        <mxCell id="_CiIot_4VqOJ6wbPFEgu-6" value="Personnage&#xa;" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=18;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
           <mxGeometry x="-710" y="-1510" width="330" height="262" as="geometry" />
         </mxCell>
-        <mxCell id="_CiIot_4VqOJ6wbPFEgu-7" value="-nom_de_classe:chaine&#xa;-nom: string&#xa;-point_de_vie:int&#xa;-santé:bool&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-6">
+        <mxCell id="_CiIot_4VqOJ6wbPFEgu-7" value="-nom: string&#xa;-point_de_vie:int&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-6">
           <mxGeometry y="26" width="330" height="116" as="geometry" />
         </mxCell>
         <mxCell id="_CiIot_4VqOJ6wbPFEgu-8" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-6">
           <mxGeometry y="142" width="330" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="_CiIot_4VqOJ6wbPFEgu-9" value="+AfficheClasse(NomClasse:string)&#xa;+AfficherNom(nom:string)&#xa;+AfficherPV(pv:int)&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-6">
+        <mxCell id="_CiIot_4VqOJ6wbPFEgu-9" value="+all_info(): string&#xa;-santé:bool&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-6">
           <mxGeometry y="150" width="330" height="112" as="geometry" />
         </mxCell>
         <mxCell id="_CiIot_4VqOJ6wbPFEgu-10" value="Guerrier" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=18;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
           <mxGeometry x="-710" y="-1077" width="340" height="148" as="geometry" />
         </mxCell>
-        <mxCell id="_CiIot_4VqOJ6wbPFEgu-11" value="-point_attaque:int&#xa;-boost_attaque:int&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-10">
+        <mxCell id="_CiIot_4VqOJ6wbPFEgu-11" value="-point_attaque:int&#xa;-boost_attaque: static int&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-10">
           <mxGeometry y="26" width="340" height="54" as="geometry" />
         </mxCell>
         <mxCell id="_CiIot_4VqOJ6wbPFEgu-12" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-10">
@@ -298,7 +298,7 @@
         <mxCell id="_CiIot_4VqOJ6wbPFEgu-14" value="Soigneur" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=18;fillColor=#a20025;fontColor=#ffffff;strokeColor=#6F0000;" vertex="1" parent="1">
           <mxGeometry x="130" y="-1100" width="380" height="88" as="geometry" />
         </mxCell>
-        <mxCell id="_CiIot_4VqOJ6wbPFEgu-15" value="-point_soins:int&#xa;-boost_soin:int&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-14">
+        <mxCell id="_CiIot_4VqOJ6wbPFEgu-15" value="-point_soins:int&#xa;-boost_soin:static int&#xa;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-14">
           <mxGeometry y="26" width="380" height="54" as="geometry" />
         </mxCell>
         <mxCell id="_CiIot_4VqOJ6wbPFEgu-16" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;fontSize=18;" vertex="1" parent="_CiIot_4VqOJ6wbPFEgu-14">
