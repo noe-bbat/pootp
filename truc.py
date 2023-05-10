@@ -3,6 +3,8 @@ import random
 from abc import abstractmethod
 from tkinter import*
 import tkinter as tk
+from tkinter import messagebox
+
 
 ''' 頑張る'''
 
@@ -25,8 +27,8 @@ class Personnage:
         @property
         def pv(self):
                 return self.__pv        
-        def sante(pv):
-                return (pv>=0)
+        def sante(self):
+                return (self.__pv>=0)
         
         def prise_de_degat(self,pv_restants):
                 self.__pv=pv_restants
@@ -212,57 +214,118 @@ class Generation_Personnage(Mage_Blanc,Chamane,Barbare,Chevalier_Gryffon,Chevali
 class Application(Generation_Personnage,tk.Tk):
         def __init__(self):
                 tk.Tk.__init__(self)
+                texte= Label(self,text="Bon jeu!")
+                texte.grid(row = 0, column = 0, sticky = W, pady = 2)
                 self.widgets()
         def widgets(self):
                 #Grid
+                tour=1
+                ideu=1
+                idun=1
                 EnsembleCast={}
                 DeckJ1={}
                 DeckJ2={}
                 prt = Tk()
-                tour = 1
                 prt.geometry("700x500")
                 #création des deux listes
                 Deck1= Label(prt,text="Deck joueur 1")
                 Deck2= Label(prt,text="Deck joueur 2")
-                ListeJ1=Listbox(prt,height=10,width=20,bg="#e0d0a2",selectmode="SINGLE",fg="#210103",cursor="target",font="Arial",highlightcolor="#e0dfa2")
+                TourT=Label(prt,text="Tour du Joueur "+str(tour))
+                
+                def combat():
+                        global tour
+                        try:
+                                tourt=tour
+                        except NameError:
+                                tourt=1
+                        if tourt==1:
+                                idun=1+ListeJ1.curselection()[0]
+                                if type(DeckJ1[idun]).__name__=='Chamane' or type(DeckJ1[idun]).__name__=='Mage_Blanc' or type(DeckJ1[idun]).__name__=='Pretre':
+                                        messagebox.showinfo(title="Impossible", message="Un soigneur de ne pas attaquer voyons")
+                                elif not(DeckJ1[idun].pv>0):
+                                        messagebox.showinfo(title="Impossible", message="Les morts n'attaquent pas voyons")
+                                else:
+                                        atkant=DeckJ1[idun]
+                                        ideu=1+ListeJ2.curselection()[0]
+                                        atké=DeckJ2[ideu]
+                                        #atké=DeckJ2[2]
+                                        if (atké.pv>0):
+                                                atké.prise_de_degat(atkant.attaquer(atkant.point_atk,atké.pv))
+                                                messagebox.showinfo(title="Combat",message=atkant.nom+" a inflingé "+str(atkant.point_atk)+" à "+atké.nom+" qui n'a plus que "+str(atké.pv)+" points de vie.")
+                                        else:
+                                                messagebox.showinfo(title="Impossible", message="C'est pas gentil d'attaquer les morts voyons")
+                                        tour=2
+                                        TourT.config(text="Tour du Joueur "+str(tour))
+                        elif tourt==2:
+                                ideu=1+ListeJ2.curselection()[0]
+                                if type(DeckJ2[ideu]).__name__=='Chamane' or type(DeckJ2[ideu]).__name__=='Mage_Blanc' or type(DeckJ2[ideu]).__name__=='Pretre':
+                                        messagebox.showinfo(title="Impossible", message="Un soigneur de ne pas attaquer voyons")
+                                elif not(DeckJ2[ideu].pv>0):
+                                        messagebox.showinfo(title="Impossible", message="Les morts n'attaquent pas voyons")
+                                else:
+                                        atkant=DeckJ2[ideu]
+                                        idun=1+ListeJ1.curselection()[0]
+                                        atké=DeckJ1[idun]
+                                        #atké=DeckJ2[2]
+                                        if (atké.pv>0):
+                                                atké.prise_de_degat(atkant.attaquer(atkant.point_atk,atké.pv))
+                                                messagebox.showinfo(title="Combat",message=atkant.nom+" a inflingé "+str(atkant.point_atk)+" à "+atké.nom+" qui n'a plus que "+str(atké.pv)+" points de vie.")
+                                        else:
+                                                messagebox.showinfo(title="Impossible", message="C'est pas gentil d'attaquer les morts voyons")
+                                        tour=1
+                                        TourT.config(text="Tour du Joueur "+str(tour))
+  
+                def heal():
+                        idun=1+ListeJ1.curselection()[0]
+                        if type(DeckJ1[idun]).__name__=='Barbare' or type(DeckJ1[idun]).__name__=='Soldat' or type(DeckJ1[idun]).__name__=='General':
+                                messagebox.showinfo(title="Impossible", message="Un guerrier ne peux pas soigner voyons")
+                        elif not(DeckJ1[idun].pv>0):
+                                messagebox.showinfo(title="Impossible", message="Les morts ne soignent pas voyons")
+                        else:
+                                healeur=DeckJ1[idun]
+                                healé=DeckJ1[random.randint(1,10)]
+                                if (healé.pv>0):
+                                        healeur.healing(healeur.soigner(healé.pv,healeur.point_soin))
+                                        messagebox.showinfo(title="Combat",message=healeur.nom+" a restauré "+str(healeur.point_soin)+" à "+healé.nom+" qui a maintenant "+str(healé.pv)+" points de vie.")
+                                else:
+                                        messagebox.showinfo(title="Impossible", message="On ne soigne pas les morts voyons")
+                
+                BA = Button(prt, text = "Attaquer",fg="red",bg="black",command=combat)
+                BS = Button(prt, text = "Soigner",fg="blue",bg="grey", command=heal)
+                ListeJ1=Listbox(prt,exportselection=False,height=10,width=20,bg="#e0d0a2",selectmode="BROWSE",fg="#210103",cursor="target",font="Arial",highlightcolor="#e0dfa2")
                 for i in range(1,100):
                         EnsembleCast[i]=Generation_Personnage.generation()
                 for i in range(1,11):
-                        DeckJ1[i]=EnsembleCast[random.randint(1,100)]
+                        DeckJ1[i]=EnsembleCast[random.randint(1,99)]
                         ListeJ1.insert(i,DeckJ1[i].nom)
-                ListeJ2=Listbox(prt,height=10,width=20,bg="#a4a2e0",selectmode="SINGLE",fg="#04011c",cursor="target",font="Arial",highlightcolor="#a4a9e0")
-                for i in range(1,100):
-                        DeckJ2[i]=EnsembleCast[random.randint(1,100)]
+                ListeJ2=Listbox(prt,height=10,width=20,bg="#a4a2e0",selectmode="BROWSE",fg="#04011c",cursor="target",font="Arial",highlightcolor="#a4a9e0")
+                for i in range(1,11):
+                        DeckJ2[i]=EnsembleCast[random.randint(1,99)]
                         ListeJ2.insert(i,DeckJ2[i].nom)
-                ideu=1
-                idun=1
                 #texteJ1=StringVar(value="Default Value")
                 #texteJ1.set(DeckJ1[idun].nom+'( '+str(type(DeckJ1[idun]).__name__)+' ): '+str(DeckJ1[idun].pv)+' points de vie')
                 #texteJ1.set("Yo salut")
                 
                 def ligneUn(event):
-                        idun=ListeJ1.curselection()[0]+1
-                        Decke1.config(text=DeckJ1[idun].nom+"( "+str(type(DeckJ1[idun]).__name__)+" )"+": "+str(DeckJ1[idun].pv)+" points de vie")
+                        idun=1+ListeJ1.curselection()[0]
+                        if (DeckJ1[idun].pv<0):
+                                Decke1.config(text=DeckJ1[idun].nom+"( Mort )\nRIP BOZO\n Un petit ange parti trop tôt.")
+                        elif type(DeckJ1[idun]).__name__=='Chevalier_Gryffon' or type(DeckJ1[idun]).__name__=='Chevalier_Sacre' or type(DeckJ1[idun]).__name__=='Moine':
+                                Decke1.config(text=DeckJ1[idun].nom+"( "+str(type(DeckJ1[idun]).__name__)+" )"+": "+str(DeckJ1[idun].pv)+" points de vie\n Point d'attaque: "+str(DeckJ1[idun].point_atk)+"\n Point de heal: "+str(DeckJ1[idun].point_soin))
+                        elif type(DeckJ1[idun]).__name__=='General' or type(DeckJ1[idun]).__name__=='Barbare' or type(DeckJ1[idun]).__name__=='Soldat':
+                                Decke1.config(text=DeckJ1[idun].nom+"( "+str(type(DeckJ1[idun]).__name__)+" )"+": "+str(DeckJ1[idun].pv)+" points de vie\n Point d'attaque: "+str(DeckJ1[idun].point_atk))
+                        else:
+                                Decke1.config(text=DeckJ1[idun].nom+"( "+str(type(DeckJ1[idun]).__name__)+" )"+": "+str(DeckJ1[idun].pv)+" points de vie\n Point de heal: "+str(DeckJ1[idun].point_soin))
                 def ligneDeux(event):
-                        ideu=ListeJ2.curselection()[0]+1
-                        Decke2.config(text=DeckJ2[ideu].nom+"( "+str(type(DeckJ2[ideu]).__name__)+" )"+": "+str(DeckJ2[ideu].pv)+" points de vie")
-
-
-                def combat(self,event):
-                        if tour==1:
-                                Perso1=DeckJ1[idun]
-                                Perso2=DeckJ2[ideux]
-                        elif tour==2:
-                                Perso1=DeckJ2[ideux]
-                                Perso2=DeckJ1[idun]
-                        Perso1.prise_de_degat(Perso2.attaquer(Perso2.point_atk,Perso1.pv))
-                        if tour==1:
-                                tour=2
-                        elif tour==2:
-                                tour=1
-
-                BA = Button(prt, text = "Attaquer",fg="red",bg="black",command= combat)
-                BS = Button(prt, text = "Soigner",)
+                        ideu=1+ListeJ2.curselection()[0]
+                        if (DeckJ2[ideu].pv<0):
+                                Decke2.config(text=DeckJ2[ideu].nom+"( Mort )\nRIP BOZO\n Un petit ange parti trop tôt.")
+                        elif type(DeckJ2[ideu]).__name__=='Chevalier_Gryffon' or type(DeckJ2[ideu]).__name__=='Chevalier_Sacre' or type(DeckJ2[ideu]).__name__=='Moine':
+                                Decke2.config(text=DeckJ2[ideu].nom+"( "+str(type(DeckJ2[ideu]).__name__)+" )"+": "+str(DeckJ2[ideu].pv)+" points de vie\n Point d'attaque: "+str(DeckJ2[ideu].point_atk)+"\n Point de heal: "+str(DeckJ2[ideu].point_soin))
+                        elif type(DeckJ2[ideu]).__name__=='General' or type(DeckJ2[ideu]).__name__=='Barbare' or type(DeckJ2[ideu]).__name__=='Soldat':
+                                Decke2.config(text=DeckJ2[ideu].nom+"( "+str(type(DeckJ2[ideu]).__name__)+" )"+": "+str(DeckJ2[ideu].pv)+" points de vie\n Point d'attaque: "+str(DeckJ2[ideu].point_atk))
+                        else:
+                                Decke2.config(text=DeckJ2[ideu].nom+"( "+str(type(DeckJ2[ideu]).__name__)+" )"+": "+str(DeckJ2[ideu].pv)+" points de vie\n Point de heal: "+str(DeckJ2[ideu].point_soin))
                 
                 Deck1.grid(row = 0, column = 0, sticky = W, pady = 2)
                 Deck2.grid(row = 0, column = 4, sticky = E, pady = 2)
@@ -270,6 +333,7 @@ class Application(Generation_Personnage,tk.Tk):
                 BS.grid(row = 1, column = 1, sticky = W, pady = 2)
                 ListeJ1.grid(row=1, column=0,sticky = W, pady = 2)
                 ListeJ2.grid(row=1, column=4,sticky = E, pady = 2)
+                TourT.grid(row=3,column=1,sticky=W,pady=2)
                 Decke1 = Label(prt,text=DeckJ1[idun].nom+"( "+str(type(DeckJ1[idun]).__name__)+" )"+": "+str(DeckJ1[idun].pv)+" points de vie")
                 Decke2 = Label(prt,text=DeckJ2[ideu].nom+"( "+str(type(DeckJ2[ideu]).__name__)+" )"+": "+str(DeckJ2[ideu].pv)+" points de vie")
                 Decke1.grid(row = 4, column = 0, sticky = W, pady = 2)
@@ -277,7 +341,6 @@ class Application(Generation_Personnage,tk.Tk):
                 
                 ListeJ1.bind("<<ListboxSelect>>",ligneUn)
                 ListeJ2.bind("<<ListboxSelect>>",ligneDeux)
-
                 
                 
 
